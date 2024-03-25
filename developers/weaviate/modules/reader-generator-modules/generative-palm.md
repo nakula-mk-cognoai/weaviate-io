@@ -152,7 +152,7 @@ services:
       - --scheme
       - http
     image:
-      semitechnologies/weaviate:||site.weaviate_version||
+      cr.weaviate.io/semitechnologies/weaviate:||site.weaviate_version||
     ports:
       - 8080:8080
       - 50051:50051
@@ -218,7 +218,7 @@ See the relevant Google API documentation for further details on these parameter
 <details>
   <summary>New to Weaviate Schemas?</summary>
 
-If you are new to Weaviate, check out the [Weaviate schema tutorial](/developers/weaviate/tutorials/schema.md).
+If you are new to Weaviate, check out the [Weaviate schema tutorial](/developers/weaviate/starter-guides/schema.md).
 
 </details>
 
@@ -354,6 +354,13 @@ import PalmGroupedResult from '/_includes/code/generative.palm.groupedresult.mdx
 }
 ```
 
+### Multi-modality
+
+:::info Added in `v1.24.2`
+:::
+
+Weaviate can leverage multimodality of the `gemini-pro-vision` model. Thus, the input passed onto `gemini-pro-vision` can be a combination of text and images, where images are represented as base64 encoded strings.
+
 ## Additional information
 
 ### Supported models
@@ -362,17 +369,13 @@ You can specify the model as a part of the schema as shown earlier. Available mo
 
 Vertex AI:
 - `chat-bison` (default)
+- `gemini-pro`
+- `gemini-pro-vision` (from Weaviate `v1.24.2`)
 
 AI Studio:
 - `chat-bison-001` (default)
 - `gemini-pro`
-
-:::info Additional model support in progress
-
-- `gemini-pro-vision` for Vertex AI and AI Studio
-- `gemini-pro` on Vertex AI
-
-:::
+- `gemini-pro-vision` (from Weaviate `v1.24.2`)
 
 import DocsMoreResources from '/_includes/more-resources-docs.md';
 

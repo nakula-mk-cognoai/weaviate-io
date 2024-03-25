@@ -12,12 +12,15 @@ import EndToEndTSCode from '!!raw-loader!/_includes/code/quickstart/endtoend.ts'
 import weaviate
 
 # As of November 2023, WCS sandbox instances are not yet compatible with the new API introduced in the v4 Python client.
-# Accordingly, we show you how to connect to a local instance of Weaviate.
-# Here, authentication is switched off, which is why you do not need to provide the Weaviate API key.
-client = weaviate.connect_to_local(
-    port=8080,
-    grpc_port=50051,
-)
+# This example connects to a local instance of Weaviate. You do not need to provide the Weaviate API key when local,
+# anonymous, authentication is enabled.
+client = weaviate.connect_to_local()
+
+try:
+    # Your code here
+except:
+    # Close the connection gracefully
+    client.close()
 ```
 
 </TabItem>
@@ -29,12 +32,31 @@ import json
 
 client = weaviate.Client(
     url = "https://some-endpoint.weaviate.network",  # Replace with your endpoint
-    auth_client_secret=weaviate.AuthApiKey(api_key="YOUR-WEAVIATE-API-KEY"),  # Replace w/ your Weaviate instance API key
+    auth_client_secret=weaviate.auth.AuthApiKey(api_key="YOUR-WEAVIATE-API-KEY"),  # Replace w/ your Weaviate instance API key
 )
 ```
 
 </TabItem>
-<TabItem value="js" label="JavaScript/TypeScript">
+<TabItem value="js" label="JS/TS (Beta)">
+
+```ts
+import weaviate, { WeaviateClient } from 'weaviate-client'
+
+const client: WeaviateClient = await weaviate.connectToWCS(
+     'https://some-endpoint.weaviate.network',  // Replace with your endpoint
+    {
+      authCredentials: new weaviate.ApiKey('YOUR-WEAVIATE-API-KEY'),  // Replace with your Weaviate instance API key
+      headers: {
+        'X-OpenAI-Api-Key': process.env.OPENAI_API_KEY || '',  // Replace with your inference API key
+      }
+    } 
+  )
+
+```
+
+</TabItem>
+
+<TabItem value="js2" label="JS/TS">
 
 ```ts
 import weaviate, { WeaviateClient, ObjectsBatcher, ApiKey } from 'weaviate-ts-client';

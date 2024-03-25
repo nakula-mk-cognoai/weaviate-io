@@ -11,7 +11,7 @@ export default function BlogItem(props) {
           className={styles.insideBox}
           style={{
             backgroundImage: `url(${details.backgroundImage})`,
-            backgroundSize: '100%',
+            backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
           }}
         ></div>
@@ -20,7 +20,11 @@ export default function BlogItem(props) {
           <p>{details.tagline}</p>
         </div>
         <div className={styles.bottomBox}>
-          <img src={`/img/site/${details.photo}`} alt={`${details.tagline}`} />
+          <img
+            className={styles.smallImage}
+            src={`/img/people/icon/${details.photo}`}
+            alt={`${details.tagline}`}
+          />
           <p className={styles.smallText}>
             {details.name}
             <br></br>

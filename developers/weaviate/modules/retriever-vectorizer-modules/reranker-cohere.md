@@ -39,7 +39,7 @@ services:
     - '8080'
     - --scheme
     - http
-    image: semitechnologies/weaviate:||site.weaviate_version||
+    image: cr.weaviate.io/semitechnologies/weaviate:||site.weaviate_version||
     restart: on-failure:0
     ports:
      - 8080:8080
@@ -114,6 +114,13 @@ The `reranker-cohere` module supports the following models:
 
 - `rerank-english-v2.0`
 - `rerank-multilingual-v2.0`
+
+You can also pass in your fine-tuned reranker `model_id`, such as:
+
+- `500df123-afr3-...`
+
+
+This is described further in this [blog post](/blog/fine-tuning-coheres-reranker).
 
 
 ## Usage

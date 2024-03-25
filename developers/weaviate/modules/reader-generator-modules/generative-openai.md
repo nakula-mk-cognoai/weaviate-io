@@ -101,7 +101,7 @@ services:
       - --scheme
       - http
     image:
-      semitechnologies/weaviate:||site.weaviate_version||
+      cr.weaviate.io/semitechnologies/weaviate:||site.weaviate_version||
     ports:
       - 8080:8080
       - 50051:50051
@@ -167,7 +167,7 @@ For example, the following schema configuration will set Weaviate to use the `ge
 <details>
   <summary>New to Weaviate Schemas?</summary>
 
-If you are new to Weaviate, check out the [Weaviate schema tutorial](/developers/weaviate/tutorials/schema.md).
+If you are new to Weaviate, check out the [Weaviate schema tutorial](/developers/weaviate/starter-guides/schema.md).
 
 </details>
 

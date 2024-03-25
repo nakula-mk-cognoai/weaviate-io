@@ -13,7 +13,7 @@ import weaviate
 # Instantiate the client with the user/password and OpenAI api key
 client = weaviate.Client(
     "http://localhost:8080",  # Replace with your Weaviate URL
-    # auth_client_secret=weaviate.AuthApiKey("YOUR-WEAVIATE-API-KEY"),
+    # auth_client_secret=weaviate.auth.AuthApiKey("YOUR-WEAVIATE-API-KEY"),
     additional_headers={
         "X-OpenAI-Api-Key": os.environ["OPENAI_API_KEY"]  # Replace w/ your OPENAI API key
     }
@@ -130,6 +130,15 @@ for obj in response["data"]["Get"][class_name]:
 client.schema.delete_class(class_name)
 
 # TODOv4 – maybe this should be removed
+
+# ===========================================
+# ===== Batch import with named vectors =====
+# ===========================================
+
+# BatchImportWithNamedVectors
+# Unfortunately, named vectors are not suppored in the v3 API / Python client.
+# Please upgrade to the v4 API / Python client to use named vectors.
+# END BatchImportWithNamedVectors
 
 # ============================
 # ===== Streaming import =====

@@ -9,13 +9,13 @@ import { MetaSEO } from '/src/theme/MetaSEO';
 
 ### **CUSTOMER AGREEMENT**
 
-**Last Updated: October, 2023**
+**Last Updated: January, 2024**
 
 This Customer Agreement (this “**_Agreement_**”) is between Weaviate, B.V., a private limited company (“**_Weaviate_**”), and \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ (“**_Customer_**”) and is effective as of \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ (the “**_Effective Date_**”).
 
 ### **Background**
 
-Weaviate has developed and makes available an open-sourced vector database that permits Customers to store data objects and vector embeddings (the “**_Weaviate Database_**”), which may be offered as SaaS-based product (the “**_Serverless SaaS Offering_**”) or software that is provided to Customer for installation and use on Customer’s premises or private cloud (the “**_BYOC Offering_**”).
+Weaviate has developed and makes available an open-sourced vector database that permits Customers to store data objects and vector embeddings (the “**_Weaviate Database_**”), which may be offered as SaaS-based product (the “**_Serverless Offering_**” or“**_Enterprise Dedicated Offering_**” ) or software that is provided to Customer for installation and use on Customer’s premises or private cloud (the “**_BYOC Offering_**”).
 
 ---
 ### 1. **Definitions**
@@ -30,7 +30,7 @@ Weaviate has developed and makes available an open-sourced vector database that 
 
 “**_Non-Weaviate Product_**” means a third party or Customer web-based, mobile, offline or other software application that integrates with the Weaviate Product (other than third party data hosting services used by Weaviate).  For clarity, the Weaviate Product excludes Non-Weaviate Products.
 
-“**_Order Form_**” means an order form, quote or other similar document that sets forth the specific Weaviate Product and pricing therefor (including in relation to overages), permitted number of users and subscription term, and that references this Agreement and is mutually executed by the parties.  Order Form #1 is attached hereto in **Exhibit A** and is deemed mutually executed as of the Effective Date.
+“**_Order Form_**” means an order form, quote or other similar document that sets forth the specific Weaviate Product and pricing therefor (including in relation to overages), permitted number of users and subscription term, and that references this Agreement and is mutually executed by the parties.  Order Form #1 is attached hereto in **Exhibit B** and is deemed mutually executed as of the Effective Date.
 
 ---
 ### 2. **Weaviate Product**
@@ -114,58 +114,8 @@ Amsterdam, the Netherlands.
 10. Government Terms.  Weaviate provides the Weaviate Product, including related software and technology, for ultimate federal government end use solely in accordance with the terms of this Agreement.  If Customer is an agency, department, or other entity of any government, the use, duplication, reproduction, release, modification, disclosure, or transfer of the Weaviate Product, or any related documentation of any kind, including technical data, software, and manuals, is restricted by the terms of this Agreement.  All other use is prohibited and no rights than those provided in this Agreement are conferred. The Weaviate Product was developed fully at private expense.
 11. Interpretation.  For purposes hereof, “including” means “including without limitation”.
 
-
-
-IN WITNESS WHEREOF, the duly authorized representatives of each of the parties hereto have executed this Agreement as of the Effective Date.
-
-| Weaviate:                 | Customer:                 |
-|---------------------------|---------------------------|
-| By:                       | By:                       |
-| Name:                     | Name:                     |
-| Title:                    | Title:                    |
-|\_\_\_\_\_\_\_\_\_\_\_\_\_ |\_\_\_\_\_\_\_\_\_\_\_\_\_ |
-| Address for notice        | Address for notice        |
-|                           |                           |
-|                           | Weaviate, B.V.            |
-|                           | Attn: Legal               |
-|                           |                           |
-
----
 ### **Exhibit A**
-
-**Weaviate Order Form**
-
-| Your Details            |                                  |
-| ------------------------| ---------------------------------|
-| Customer ("Customer")   | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ |
-| Trade Register Number   | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ |
-| Address                 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ |
-| Email                   | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ |
-| Contact Person          | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ |
-
-
-| Weaviate Details       |                         |
-|------------------------|-------------------------|
-| Weaviate               | Weaviate B.V.           |
-| Address                | Prinsengracht 769A, 1017JZ, Amsterdam, the Netherlands |
-| Trade Register Number  | 7523182                 |
-| VAT Number             | NL860199162B01          |
-| Email                  | hello@weaviate.io       |
-| Contact Person         |                         |
-
-
-| Fees                   |                                                           |
-|------------------------|-----------------------------------------------------------|
-| License fee            | **REMOVE THE PLANS THAT ARE NOT APPLICABLE FOR THIS ORDER** |
-| Standard               | Price per 1M embeddings: $0.095                           |
-|                        | With a floor price of $25.00, per (prod-cluster), based on the Standard support SLA type. |
-| Enterprise             | Price per 1M embeddings: $0.145                           |
-|                        | With a floor price of $135.00, per (prod-cluster), based on the Enterprise support SLA type. |
-| Business Critical      | Price per 1M embeddings: $0.195                           |
-|                        | With a floor price of $450.00, per (prod-cluster), based on the Business Critical support SLA type. |
-| Additional Payment Terms | At the end of the initial Term set forth in this Order Form, and upon the automatic renewal of this Agreement, Customer’s current fees will increase to Weaviate’s then current pricing available at: [Weaviate Pricing](https://weaviate.io/pricing/) |
-
----
+____
 ### **Exhibit B**
 
 **Weaviate Support Program Terms**
@@ -210,7 +160,7 @@ Weaviate’s online documentation includes technical and user documentation and 
 
 - Enterprise Support: Email during business hours
 - Business Critical Support: Email; 24/7 Phone hotline for escalations
-- Premium Enterprise Support: Email; 24/7 Phone hotline for escalations
+
 
 **Severity Levels and Target Response Times**
 
@@ -218,7 +168,16 @@ Weaviate shall categorize Support Tickets based on Customer’s characterization
 
 Weaviate shall provide an update on the investigation, resolution, or escalation of the Support Ticket within the response times set out in the table based on the Severity of the Support Ticket.
 
+
+**Scope of Service Inquiries**
+
+Support Requests: These are incidents or problems encountered in the operation of the current Weaviate Product, necessitating immediate attention to maintain or restore the expected service levels. Support Requests will be acknowledged and addressed promptly following the procedures outlined in Exhibit C: "Weaviate Service Level Agreement".
+
+
+Service Requests: This term refers to inquiries from the Customer seeking additional services, new clusters, or modifications that extend beyond the existing scope of the Weaviate Product. Service Requests are categorized as non-urgent and project-based, requiring a separate assessment and planning process. The response and implementation timeline for these requests will be mutually determined, subject to resource availability, project complexity, and the terms set forth in the applicable Order Form.
+
 ---
+
 
 ### **Exhibit C**
 
@@ -247,7 +206,7 @@ Exclusions from the calculation of Availability include planned maintenance wind
 
 **Non-Availability**
 
-Non-Availability refers to periods where the service level indicators are not consistently achieved, as defined below. The formal commencement of non-availability begins from the time the monitoring systems indicate such status or when the Customer notifies Weaviate at <support@weaviate.io>. This period concludes when Weaviate confirms the restoration of availability either through an email to the customer or an update on the relevant status page..
+Non-Availability refers to periods where the service level indicators are not consistently achieved, as defined below. The formal commencement of non-availability begins from the time the monitoring systems indicate such status or when the Customer notifies Weaviate at [support@weaviate.io](mailto:support@weaviate.io). This period concludes when Weaviate confirms the restoration of availability either through an email to the customer or an update on the relevant status page..
 
 **Service Level Indicators (SLIs)**
 
@@ -299,4 +258,4 @@ In the event that the availability of the services as described herein is not me
 | Below 98%                             | 30% service credit | 30% service credit |
 
 
-Service credits are calculated as a percentage of the monthly fees paid by Customer and will be applied against future payments of fees due from Customer. To receive service credits, Customer must notify Weaviate by e-mail (<support@weaviate.io>) within 30 days from the time the availability of the services was not met.
+Service credits are calculated as a percentage of the monthly fees paid by Customer and will be applied against future payments of fees due from Customer. To receive service credits, Customer must notify Weaviate by e-mail ([support@weaviate.io](mailto:support@weaviate.io)) within 30 days from the time the availability of the services was not met.

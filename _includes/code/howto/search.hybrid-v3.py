@@ -11,11 +11,53 @@ import os
 # Instantiate the client with the user/password and OpenAI api key
 client = weaviate.Client(
     "https://edu-demo.weaviate.network",
-    auth_client_secret=weaviate.AuthApiKey("learn-weaviate"),
+    auth_client_secret=weaviate.auth.AuthApiKey("learn-weaviate"),
     additional_headers={
         "X-OpenAI-Api-Key": os.environ["OPENAI_API_KEY"]
     }
 )
+
+
+# ==============================
+# ===== Named Vector Hybrid Query =====
+# ==============================
+
+# NamedVectorHybridPython
+# Unfortunately, named vectors are not suppored in the v3 API / Python client.
+# Please upgrade to the v4 API / Python client to use named vectors.
+# END NamedVectorHybridPython
+
+
+expected_results = """
+# Expected NamedVectorHybrid results
+TODO
+# END Expected NamedVectorHybrid results
+"""
+
+
+gql_query = """
+# NamedVectorHybridGraphQL
+{
+  Get {
+    WineReviewNV(
+      limit: 2
+# highlight-start
+      hybrid: {
+        targetVectors: ["title_country"]
+        query: "A French Riesling"
+      }
+# highlight-end
+    ) {
+      title
+      review_body
+      country
+    }
+  }
+}
+# END NamedVectorHybridGraphQL
+"""
+gqlresponse = client.query.raw(gql_query)
+
 
 # ==============================
 # ===== Basic Hybrid Query =====

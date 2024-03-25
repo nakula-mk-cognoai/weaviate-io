@@ -9,8 +9,12 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import FilteredTextBlock from '@site/src/components/Documentation/FilteredTextBlock';
 import PyCode from '!!raw-loader!/_includes/code/starter-guides/generative.py';
+import PyCodeV3 from '!!raw-loader!/_includes/code/starter-guides/generative_v3.py';
 import TSCodeEduDemo from '!!raw-loader!/_includes/code/starter-guides/generative_edudemo.ts';
+import TSCodeEduDemoLegacy from '!!raw-loader!/_includes/code/starter-guides/generative_edudemo-v2.ts';
 import TSCodeLocal from '!!raw-loader!/_includes/code/starter-guides/generative_local.ts';
+import TSCodeLocalLegacy from '!!raw-loader!/_includes/code/starter-guides/generative_local-v2.ts';
+
 
 ## Overview
 
@@ -62,12 +66,12 @@ This makes it easier, faster and more efficient to implement generative search w
 
 Let's begin by viewing examples of generative search in action. We will then explore how to configure Weaviate for generative search.
 
-We will use the publicly available `https://edu-demo.weaviate.network` instance, which you can access with the `learn-weaviate` read-only API key. These examples are configured with the `generative-openai` module and the `gpt-3.5-turbo` model, so you will need an OpenAI API key.
+We will use the publicly available `https://hha2nvjsruetknc5vxwrwa.c0.europe-west2.gcp.weaviate.cloud` instance, which you can access with the `nMZuw1z1zVtnjkXXOMGx9Ows7YWGsakItdus` read-only API key. These examples are configured with the `generative-openai` module and the `gpt-3.5-turbo` model, so you will need an OpenAI API key.
 
 Connect to the instance like so, remembering to replace the API key for the LLM used (OpenAI in this case) with your own API key:
 
 <Tabs groupId="languages">
-<TabItem value="py" label="Python">
+<TabItem value="py" label="Python (v4)">
 <FilteredTextBlock
   text={PyCode}
   startMarker="# Instantiation"
@@ -75,7 +79,15 @@ Connect to the instance like so, remembering to replace the API key for the LLM 
   language="py"
 />
 </TabItem>
-<TabItem value="js" label="JavaScript/TypeScript">
+<TabItem value="py3" label="Python (V3)">
+<FilteredTextBlock
+  text={PyCodeV3}
+  startMarker="# Instantiation"
+  endMarker="# END Instantiation"
+  language="py"
+/>
+</TabItem>
+<TabItem value="js" label="JS/TS (Beta)">
 <FilteredTextBlock
   text={TSCodeEduDemo}
   startMarker="// Instantiation"
@@ -83,6 +95,16 @@ Connect to the instance like so, remembering to replace the API key for the LLM 
   language="ts"
 />
 </TabItem>
+
+<TabItem value="js2" label="JS/TS">
+<FilteredTextBlock
+  text={TSCodeEduDemoLegacy}
+  startMarker="// Instantiation"
+  endMarker="// END Instantiation"
+  language="ts"
+/>
+</TabItem>
+
 </Tabs>
 
 ### Data retrieval
@@ -92,7 +114,7 @@ Let's take an illustrative example with passages from a book. Here, the Weaviate
 Before we can generate text, we need to retrieve relevant data. Let's retrieve the three most similar passages to the meaning of `history of git` with a semantic search.
 
 <Tabs groupId="languages">
-<TabItem value="py" label="Python">
+<TabItem value="py" label="Python (v4)">
 <FilteredTextBlock
   text={PyCode}
   startMarker="# DataRetrieval"
@@ -100,9 +122,25 @@ Before we can generate text, we need to retrieve relevant data. Let's retrieve t
   language="py"
 />
 </TabItem>
-<TabItem value="js" label="JavaScript/TypeScript">
+<TabItem value="py3" label="Python (V3)">
+<FilteredTextBlock
+  text={PyCodeV3}
+  startMarker="# DataRetrieval"
+  endMarker="# END DataRetrieval"
+  language="py"
+/>
+</TabItem>
+<TabItem value="js" label="JS/TS (Beta)">
 <FilteredTextBlock
   text={TSCodeEduDemo}
+  startMarker="// DataRetrieval"
+  endMarker="// END DataRetrieval"
+  language="ts"
+/>
+</TabItem>
+<TabItem value="js2" label="JS/TS">
+<FilteredTextBlock
+  text={TSCodeEduDemoLegacy}
   startMarker="// DataRetrieval"
   endMarker="// END DataRetrieval"
   language="ts"
@@ -146,7 +184,7 @@ We can transform this result set into new text using generative search with just
 Run the following code snippet, and inspect the results:
 
 <Tabs groupId="languages">
-<TabItem value="py" label="Python">
+<TabItem value="py" label="Python (v4)">
 <FilteredTextBlock
   text={PyCode}
   startMarker="# TransformResultSets"
@@ -154,9 +192,25 @@ Run the following code snippet, and inspect the results:
   language="py"
 />
 </TabItem>
-<TabItem value="js" label="JavaScript/TypeScript">
+<TabItem value="py3" label="Python (V3)">
+<FilteredTextBlock
+  text={PyCodeV3}
+  startMarker="# TransformResultSets"
+  endMarker="# END TransformResultSets"
+  language="py"
+/>
+</TabItem>
+<TabItem value="js" label="JS/TS (Beta)">
 <FilteredTextBlock
   text={TSCodeEduDemo}
+  startMarker="// TransformResultSets"
+  endMarker="// END TransformResultSets"
+  language="ts"
+/>
+</TabItem>
+<TabItem value="js2" label="JS/TS">
+<FilteredTextBlock
+  text={TSCodeEduDemoLegacy}
   startMarker="// TransformResultSets"
   endMarker="// END TransformResultSets"
   language="ts"
@@ -199,7 +253,7 @@ Here we prompt the model to translate individual wine reviews into French, using
 Note that in this query, we apply a `single prompt` parameter. This means that the LLM is prompted with each object individually, rather than with the entire result set.
 
 <Tabs groupId="languages">
-<TabItem value="py" label="Python">
+<TabItem value="py" label="Python (v4)">
 <FilteredTextBlock
   text={PyCode}
   startMarker="# TransformIndividualObjects"
@@ -207,9 +261,25 @@ Note that in this query, we apply a `single prompt` parameter. This means that t
   language="py"
 />
 </TabItem>
-<TabItem value="js" label="JavaScript/TypeScript">
+<TabItem value="py3" label="Python (V3)">
+<FilteredTextBlock
+  text={PyCodeV3}
+  startMarker="# TransformIndividualObjects"
+  endMarker="# END TransformIndividualObjects"
+  language="py"
+/>
+</TabItem>
+<TabItem value="js" label="JS/TS (Beta)">
 <FilteredTextBlock
   text={TSCodeEduDemo}
+  startMarker="// TransformIndividualObjects"
+  endMarker="// END TransformIndividualObjects"
+  language="ts"
+/>
+</TabItem>
+<TabItem value="js2" label="JS/TS">
+<FilteredTextBlock
+  text={TSCodeEduDemoLegacy}
   startMarker="// TransformIndividualObjects"
   endMarker="// END TransformIndividualObjects"
   language="ts"
@@ -253,7 +323,7 @@ For this example, you will need access to a Weaviate instance that you can write
 ### Configure generative search
 
 :::caution Generative module cannot be changed
-Currently, a generative module cannot be changed in the Weaviate class definition once it has been set. We are looking to change this going forward.
+Currently, a generative module cannot be changed in the Weaviate collection definition once it has been set. We are looking to change this going forward.
 <br/>
 
 If you would like for us to prioritize this issue, please [go to GitHub here](https://github.com/weaviate/weaviate/issues/3364), and give it a thumbs up.
@@ -261,7 +331,7 @@ If you would like for us to prioritize this issue, please [go to GitHub here](ht
 
 To use generative search, the appropriate `generative-xxx` module must be:
 - Enabled in Weaviate, and
-- Specified in the class definition.
+- Specified in the collection definition.
 
 Each module is tied to a specific group of LLMs, such as `generative-cohere` for Cohere models, `generative-openai` for OpenAI models and `generative-palm` for PaLM and Gemini models.
 
@@ -273,7 +343,7 @@ If you are using WCS, you will not need to do anything to enable modules.
 You can check which modules are enabled by viewing the `meta` information for your Weaviate instance, as shown below:
 
 <Tabs groupId="languages">
-<TabItem value="py" label="Python">
+<TabItem value="py" label="Python (v4)">
 <FilteredTextBlock
   text={PyCode}
   startMarker="# ListModules"
@@ -281,9 +351,25 @@ You can check which modules are enabled by viewing the `meta` information for yo
   language="py"
 />
 </TabItem>
-<TabItem value="ts" label="JavaScript/TypeScript">
+<TabItem value="py3" label="Python (V3)">
+<FilteredTextBlock
+  text={PyCodeV3}
+  startMarker="# ListModules"
+  endMarker="# END ListModules"
+  language="py"
+/>
+</TabItem>
+<TabItem value="js" label="TS/JS (Beta)">
 <FilteredTextBlock
   text={TSCodeEduDemo}
+  startMarker="// ListModules"
+  endMarker="// END ListModules"
+  language="ts"
+/>
+</TabItem>
+<TabItem value="js2" label="TS/JS">
+<FilteredTextBlock
+  text={TSCodeEduDemoLegacy}
   startMarker="// ListModules"
   endMarker="// END ListModules"
   language="ts"
@@ -314,7 +400,7 @@ Check the specific documentation for your deployment method ([Docker](../install
 <details>
   <summary>How to configure the language model</summary>
 
-Model properties are exposed through the Weaviate module configuration. Accordingly, you can customize them through the `moduleConfig` parameter in the class definition.
+Model properties are exposed through the Weaviate module configuration. Accordingly, you can customize them through the `moduleConfig` parameter in the collection definition.
 
 For example, the `generative-cohere` module has the following properties:
 
@@ -361,7 +447,7 @@ You can read further discussions in the [Best practices & tips](#best-practices-
 In the following snippet, we download a chapter of the `Pro Git` book, clean it and chunk it.
 
 <Tabs groupId="languages">
-<TabItem value="py" label="Python">
+<TabItem value="py" label="Python (v4)">
 <FilteredTextBlock
   text={PyCode}
   startMarker="# ChunkText"
@@ -369,9 +455,25 @@ In the following snippet, we download a chapter of the `Pro Git` book, clean it 
   language="py"
 />
 </TabItem>
-<TabItem value="js" label="JavaScript/TypeScript">
+<TabItem value="py3" label="Python (V3)">
+<FilteredTextBlock
+  text={PyCodeV3}
+  startMarker="# ChunkText"
+  endMarker="# END ChunkText"
+  language="py"
+/>
+</TabItem>
+<TabItem value="js" label="JS/TS (Beta)">
 <FilteredTextBlock
   text={TSCodeLocal}
+  startMarker="// ChunkText"
+  endMarker="// END ChunkText"
+  language="ts"
+/>
+</TabItem>
+<TabItem value="js2" label="JS/TS">
+<FilteredTextBlock
+  text={TSCodeLocalLegacy}
   startMarker="// ChunkText"
   endMarker="// END ChunkText"
   language="ts"
@@ -381,14 +483,14 @@ In the following snippet, we download a chapter of the `Pro Git` book, clean it 
 
 This will download the text from the chapter, and return a list/array of strings of 150 word chunks, with a 25-word overlap added in front.
 
-#### Create class definitions
+#### Create collection definitions
 
-We can now create a class definition for the chunks. To use generative search, your desired generative module must be specified at the class level as shown below.
+We can now create a collection definition for the chunks. To use generative search, your desired generative module must be specified at the collection level as shown below.
 
-he below class definition for the `GitBookChunk` class specifies `text2vec-openai` as the vectorizer and `generative-openai` as the generative module. Note that the `generative-openai` parameter can have an empty dictionary/object as its value, which will use the default parameters.
+The below collection definition for the `GitBookChunk` collection specifies `text2vec-openai` as the vectorizer and `generative-openai` as the generative module. Note that the `generative-openai` parameter can have an empty dictionary/object as its value, which will use the default parameters.
 
 <Tabs groupId="languages">
-<TabItem value="py" label="Python">
+<TabItem value="py" label="Python (v4)">
 <FilteredTextBlock
   text={PyCode}
   startMarker="# CreateClass"
@@ -396,9 +498,25 @@ he below class definition for the `GitBookChunk` class specifies `text2vec-opena
   language="py"
 />
 </TabItem>
-<TabItem value="js" label="JavaScript/TypeScript">
+<TabItem value="py3" label="Python (V3)">
+<FilteredTextBlock
+  text={PyCodeV3}
+  startMarker="# CreateClass"
+  endMarker="# END CreateClass"
+  language="py"
+/>
+</TabItem>
+<TabItem value="js" label="JS/TS (Beta)">
 <FilteredTextBlock
   text={TSCodeLocal}
+  startMarker="// CreateClass"
+  endMarker="// END CreateClass"
+  language="ts"
+/>
+</TabItem>
+<TabItem value="js2" label="JS/TS">
+<FilteredTextBlock
+  text={TSCodeLocalLegacy}
   startMarker="// CreateClass"
   endMarker="// END CreateClass"
   language="ts"
@@ -411,7 +529,7 @@ he below class definition for the `GitBookChunk` class specifies `text2vec-opena
 Now, we can import the data into Weaviate.
 
 <Tabs groupId="languages">
-<TabItem value="py" label="Python">
+<TabItem value="py" label="Python (v4)">
 <FilteredTextBlock
   text={PyCode}
   startMarker="# ImportData"
@@ -419,9 +537,25 @@ Now, we can import the data into Weaviate.
   language="py"
 />
 </TabItem>
-<TabItem value="js" label="JavaScript/TypeScript">
+<TabItem value="py3" label="Python (V3)">
+<FilteredTextBlock
+  text={PyCodeV3}
+  startMarker="# ImportData"
+  endMarker="# END ImportData"
+  language="py"
+/>
+</TabItem>
+<TabItem value="js" label="JS/TS (Beta)">
 <FilteredTextBlock
   text={TSCodeLocal}
+  startMarker="// ImportData"
+  endMarker="// END ImportData"
+  language="ts"
+/>
+</TabItem>
+<TabItem value="js2" label="JS/TS">
+<FilteredTextBlock
+  text={TSCodeLocalLegacy}
   startMarker="// ImportData"
   endMarker="// END ImportData"
   language="ts"
@@ -432,7 +566,7 @@ Now, we can import the data into Weaviate.
 Once this is done, you should have imported a collection of chunks from the chapter into Weaviate. You can check this by running a simple aggregation query:
 
 <Tabs groupId="languages">
-<TabItem value="py" label="Python">
+<TabItem value="py" label="Python (v4)">
 <FilteredTextBlock
   text={PyCode}
   startMarker="# CountObjects"
@@ -440,9 +574,25 @@ Once this is done, you should have imported a collection of chunks from the chap
   language="py"
 />
 </TabItem>
-<TabItem value="js" label="JavaScript/TypeScript">
+<TabItem value="py3" label="Python (V3)">
+<FilteredTextBlock
+  text={PyCodeV3}
+  startMarker="# CountObjects"
+  endMarker="# END CountObjects"
+  language="py"
+/>
+</TabItem>
+<TabItem value="js" label="JS/TS (Beta)">
 <FilteredTextBlock
   text={TSCodeLocal}
+  startMarker="// CountObjects"
+  endMarker="// END CountObjects"
+  language="ts"
+/>
+</TabItem>
+<TabItem value="js2" label="JS/TS">
+<FilteredTextBlock
+  text={TSCodeLocalLegacy}
   startMarker="// CountObjects"
   endMarker="// END CountObjects"
   language="ts"
@@ -461,7 +611,7 @@ Now that we have configured Weaviate and populated it with data, we can perform 
 Single prompts tell Weaviate to generate text based on each retrieved object and the user-provided prompt. In this example, we retrieve two objects and prompt the language model to write a haiku based on the text of each chunk.
 
 <Tabs groupId="languages">
-<TabItem value="py" label="Python">
+<TabItem value="py" label="Python (v4)">
 <FilteredTextBlock
   text={PyCode}
   startMarker="# SinglePrompt"
@@ -469,9 +619,25 @@ Single prompts tell Weaviate to generate text based on each retrieved object and
   language="py"
 />
 </TabItem>
-<TabItem value="js" label="JavaScript/TypeScript">
+<TabItem value="py3" label="Python (V3)">
+<FilteredTextBlock
+  text={PyCodeV3}
+  startMarker="# SinglePrompt"
+  endMarker="# END SinglePrompt"
+  language="py"
+/>
+</TabItem>
+<TabItem value="js" label="JS/TS (Beta)">
 <FilteredTextBlock
   text={TSCodeLocal}
+  startMarker="// SinglePrompt"
+  endMarker="// END SinglePrompt"
+  language="ts"
+/>
+</TabItem>
+<TabItem value="js2" label="JS/TS">
+<FilteredTextBlock
+  text={TSCodeLocalLegacy}
   startMarker="// SinglePrompt"
   endMarker="// END SinglePrompt"
   language="ts"
@@ -500,7 +666,7 @@ A grouped task is a prompt that is applied to a group of objects. This allows yo
 In this example, we prompt the language model to write a trivia tweet based on the result.
 
 <Tabs groupId="languages">
-<TabItem value="py" label="Python">
+<TabItem value="py" label="Python (v4)">
 <FilteredTextBlock
   text={PyCode}
   startMarker="# GroupedTask"
@@ -508,9 +674,25 @@ In this example, we prompt the language model to write a trivia tweet based on t
   language="py"
 />
 </TabItem>
-<TabItem value="js" label="JavaScript/TypeScript">
+<TabItem value="py3" label="Python (V3)">
+<FilteredTextBlock
+  text={PyCodeV3}
+  startMarker="# GroupedTask"
+  endMarker="# END GroupedTask"
+  language="py"
+/>
+</TabItem>
+<TabItem value="js" label="JS/TS (Beta)">
 <FilteredTextBlock
   text={TSCodeLocal}
+  startMarker="// GroupedTask"
+  endMarker="// END GroupedTask"
+  language="ts"
+/>
+</TabItem>
+<TabItem value="js2" label="JS/TS">
+<FilteredTextBlock
+  text={TSCodeLocalLegacy}
   startMarker="// GroupedTask"
   endMarker="// END GroupedTask"
   language="ts"
@@ -533,7 +715,7 @@ Generative search in Weaviate is a two-step process under the hood, involving re
 In this example, we search the chapter for passages that relate to the states of git before generating a tweet as before.
 
 <Tabs groupId="languages">
-<TabItem value="py" label="Python">
+<TabItem value="py" label="Python (v4)">
 <FilteredTextBlock
   text={PyCode}
   startMarker="# NearTextGroupedTask"
@@ -541,9 +723,25 @@ In this example, we search the chapter for passages that relate to the states of
   language="py"
 />
 </TabItem>
-<TabItem value="js" label="JavaScript/TypeScript">
+<TabItem value="py3" label="Python (V3)">
+<FilteredTextBlock
+  text={PyCodeV3}
+  startMarker="# NearTextGroupedTask"
+  endMarker="# END NearTextGroupedTask"
+  language="py"
+/>
+</TabItem>
+<TabItem value="js" label="JS/TS (Beta)">
 <FilteredTextBlock
   text={TSCodeLocal}
+  startMarker="// NearTextGroupedTask"
+  endMarker="// END NearTextGroupedTask"
+  language="ts"
+/>
+</TabItem>
+<TabItem value="js2" label="JS/TS">
+<FilteredTextBlock
+  text={TSCodeLocalLegacy}
   startMarker="// NearTextGroupedTask"
   endMarker="// END NearTextGroupedTask"
   language="ts"
@@ -562,7 +760,7 @@ This should return text like:
 Now, simply by changing the search query, we can generate similar content about different topics.
 
 <Tabs groupId="languages">
-<TabItem value="py" label="Python">
+<TabItem value="py" label="Python (v4)">
 <FilteredTextBlock
   text={PyCode}
   startMarker="# SecondNearTextGroupedTask"
@@ -570,9 +768,25 @@ Now, simply by changing the search query, we can generate similar content about 
   language="py"
 />
 </TabItem>
-<TabItem value="js" label="JavaScript/TypeScript">
+<TabItem value="py3" label="Python (V3)">
+<FilteredTextBlock
+  text={PyCodeV3}
+  startMarker="# SecondNearTextGroupedTask"
+  endMarker="# END SecondNearTextGroupedTask"
+  language="py"
+/>
+</TabItem>
+<TabItem value="js" label="JS/TS (Beta)">
 <FilteredTextBlock
   text={TSCodeLocal}
+  startMarker="// SecondNearTextGroupedTask"
+  endMarker="// END SecondNearTextGroupedTask"
+  language="ts"
+/>
+</TabItem>
+<TabItem value="js2" label="JS/TS">
+<FilteredTextBlock
+  text={TSCodeLocalLegacy}
   startMarker="// SecondNearTextGroupedTask"
   endMarker="// END SecondNearTextGroupedTask"
   language="ts"

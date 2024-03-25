@@ -1,8 +1,18 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import FilteredTextBlock from '@site/src/components/Documentation/FilteredTextBlock';
+import PyCode from '!!raw-loader!/_includes/code/rest.batch.py';
 
 <Tabs groupId="languages">
-<TabItem value="py" label="Python">
+<TabItem value="py" label="Python (v4)">
+    <FilteredTextBlock
+      text={PyCode}
+      startMarker="# START BatchDeleteObjects"
+      endMarker="# END BatchDeleteObjects"
+      language="py"
+    />
+</TabItem>
+<TabItem value="py3" label="Python (v3)">
 
 ```python
 import weaviate
@@ -10,20 +20,19 @@ import weaviate
 client = weaviate.Client("http://localhost:8080")
 
 # Optionally set the consistency level
-client.batch.consistency_level = weaviate.data.replication.ConsistencyLevel.ALL  # default QUORUM
+client.batch.consistency_level = (
+    weaviate.data.replication.ConsistencyLevel.ALL  # default QUORUM
+)
 result = client.batch.delete_objects(
-  class_name="Author",
-  # same where operator as in the GraphQL API
-  where={
-    "operator": "Equal",
-    "path": ["name"],
-    "valueText": "Jane"
-  },
-  output="verbose",
-  dry_run=False
+    class_name="Author",
+    where={"operator": "Equal", "path": ["name"], "valueText": "Jane"},  # same where operator as in the GraphQL API
+    output="verbose",
+    dry_run=False,
+    # tenant="tenantA"  # Optional; specify the tenant in multi-tenancy collections
 )
 
 print(result)
+
 ```
 
 </TabItem>
@@ -48,6 +57,7 @@ const response = await client.batch
     valueText: '1651514874263',
   })
   .withConsistencyLevel('ALL')  // default QUORUM
+  // .withTenant('tenantA')  // Optional; specify the tenant in multi-tenancy collections
   .do();
 
 console.log(JSON.stringify(response, null, 2));
@@ -89,6 +99,7 @@ func main() {
     WithDryRun(false).
     WithWhere(where).
     WithConsistencyLevel(replication.ConsistencyLevel.ALL).  // default QUORUM
+    // WithTenant("tenantA").  // Optional; specify the tenant in multi-tenancy collections
     Do(context.Background())
 
   if err != nil {
@@ -131,6 +142,7 @@ public class App {
       .withDryRun(false)
       .withWhere(where)
       .withConsistencyLevel(ConsistencyLevel.ALL)  // default QUORUM
+      // .withTenant("tenantA")  // Optional; specify the tenant in multi-tenancy collections
       .run();
 
     if (result.hasErrors()) {

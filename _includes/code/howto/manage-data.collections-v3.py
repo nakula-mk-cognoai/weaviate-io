@@ -101,6 +101,15 @@ client.schema.delete_class(class_name)
 
 
 # ===============================================
+# ===== CREATE A COLLECTION WITH NAMED VECTORS =====
+# ===============================================
+
+# START BasicNamedVectors
+# Unfortunately, named vectors are not suppored in the v3 API / Python client.
+# Please upgrade to the v4 API / Python client to use named vectors.
+# END BasicNamedVectors
+
+# ===============================================
 # ===== SetVectorIndex =====
 # ===============================================
 
@@ -315,11 +324,11 @@ class_obj = {
     "class": "Article",
     # highlight-start
     "shardingConfig": {
-        "virtual_per_physical": 128,
-        "desired_count": 1,
-        "actual_count": 1,
-        "desired_virtual_count": 128,
-        "actual_virtual_count": 128,
+        "virtualPerPhysical": 128,
+        "desiredCount": 1,
+        "actual_actualCountcount": 1,
+        "desiredVirtualCount": 128,
+        "actualVirtualCount": 128,
     },
     # highlight-end
 }

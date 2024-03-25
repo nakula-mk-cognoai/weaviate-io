@@ -48,7 +48,7 @@ GET /v1/objects?class={ClassName}&limit={limit}&include={include}
 | `class` | string | List objects by class using the class name. |
 | `limit` | integer | The maximum number of data objects to return. Default 25. |
 | `offset` | integer | The offset of objects returned (the starting index of the returned objects).<br/><br/>Cannot be used with `after`.<br/>Should be used in conjunction with `limit`. |
-| `after` | string | ID of the object after which (i.e. non-inclusive ID) objects are to be listed.<br/><br/>Must be used with `class`<br/>Cannot be used with `offset` or `sort`.<br/>Should be used in conjunction with `limit`. |
+| `after` | string | Returned objects follow the object with this ID. This object is not part of the set.<br/><br/>Must be used with `class`<br/>Cannot be used with `offset` or `sort`.<br/>Should be used in conjunction with `limit`. |
 | `include` | string | Include additional information, such as classification info. <br/><br/>Allowed values include: `classification`, `vector`, `featureProjection` and other module-specific additional properties. |
 | `sort` | string | Name of the property to sort by - i.e. `sort=city`<br/><br/>You can also provide multiple names – i.e. `sort=country,city` |
 | `order` | string | Order in which to sort by.<br/><br/>Possible values: `asc` (default) and `desc`. <br/>Should be used in conjunction with `sort`.|
@@ -188,25 +188,6 @@ import SemanticKindGet from '/_includes/code/semantic-kind.get.mdx';
 
 Create a new data object. The provided meta-data and schema values are validated.
 
-### `objects` vs `batch`
-
-:::tip
-The `objects` endpoint is meant for individual object creations.
-:::
-
-If you plan on importing a large number of objects, it's much more efficient to use the [`/v1/batch`](./batch.md) endpoint. Otherwise, sending multiple single requests sequentially would incur a large performance penalty:
-
-1. Each sequential request would be handled by a single thread server-side while most of the server resources are idle. In addition, if you only send the second request once the first has been completed, you will wait for a lot of network overhead.
-1. It's much more efficient to parallelize imports. This will minimize the connection overhead and use multiple threads server-side for indexing.
-1. You do not have to do the parallelization yourself, you can use the [`/v1/batch`](./batch.md) endpoint for this. Even if you are sending batches from a single client thread, the objects within a batch will be handled by multiple server threads.
-1. Import speeds, especially for large datasets, will drastically improve when using the batching endpoint.
-
-:::note Idempotence of POST requests in `objects` and `batch`
-The idempotence behavior differs between these two endpoints. POST /batch/objects is idempotent, and will overwrite any existing object given an id. POST /objects will fail if an id is provided which already exists in the class.
-
-To update an existing object with the `objects` endpoint, use the [PUT or PATCH method](#update-a-data-object).
-:::
-
 #### Method and URL
 
 ```http
@@ -241,6 +222,25 @@ The request body for a new object has the following fields:
 import SemanticKindCreate from '/_includes/code/semantic-kind.create.mdx';
 
 <SemanticKindCreate/>
+
+### `objects` vs `batch`
+
+:::tip
+The `objects` endpoint is meant for individual object creations.
+:::
+
+If you plan on importing a large number of objects, it's much more efficient to use the [`/v1/batch`](./batch.md) endpoint. Otherwise, sending multiple single requests sequentially would incur a large performance penalty:
+
+1. Each sequential request would be handled by a single thread server-side while most of the server resources are idle. In addition, if you only send the second request once the first has been completed, you will wait for a lot of network overhead.
+1. It's much more efficient to parallelize imports. This will minimize the connection overhead and use multiple threads server-side for indexing.
+1. You do not have to do the parallelization yourself, you can use the [`/v1/batch`](./batch.md) endpoint for this. Even if you are sending batches from a single client thread, the objects within a batch will be handled by multiple server threads.
+1. Import speeds, especially for large datasets, will drastically improve when using the batching endpoint.
+
+:::note Idempotence of POST requests in `objects` and `batch`
+The idempotence behavior differs between these two endpoints. POST /batch/objects is idempotent, and will overwrite any existing object given an id. POST /objects will fail if an id is provided which already exists in the class.
+
+To update an existing object with the `objects` endpoint, use the [PUT or PATCH method](#update-a-data-object).
+:::
 
 ### With geoCoordinates
 
@@ -551,8 +551,6 @@ The request body is an object with the following field:
 | ---- | ---- | -------- | ----------- |
 | `beacon` | Weaviate Beacon | yes | The beacon URL of the reference, in the format `weaviate://localhost/<ClassName>/<id>` |
 
-<BeaconsRequireLocalhost />
-
 <BeaconsBackCompatOmitClassname />
 
 #### Example request
@@ -604,8 +602,6 @@ The `PUT` request body is a list of beacons:
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | `beacon` | Weaviate Beacon array | yes | Array of beacons in the format `weaviate://localhost/<ClassName>/<id>` |
-
-<BeaconsRequireLocalhost />
 
 <BeaconsBackCompatOmitClassname />
 
@@ -659,8 +655,6 @@ The request body is a beacon object:
 | ---- | ---- | -------- | ----------- |
 | `beacon` | Weaviate Beacon | yes | The beacon URL of the reference, formatted as `weaviate://localhost/<ClassName>/<id>` |
 
-<BeaconsRequireLocalhost />
-
 :::note
 For backward compatibility, beacons generally support an older,
 deprecated format without the class name, as well. This means you might find
@@ -686,6 +680,9 @@ When using multi-tenancy, cross-references can only be made:
 - From a multi-tenancy object to a non-multi-tenancy object.
 - From a multi-tenancy object to a multi-tenancy object, as long as they belong to the same tenant.
 
+## Notes
+
+<BeaconsRequireLocalhost />
 
 import DocsMoreResources from '/_includes/more-resources-docs.md';
 

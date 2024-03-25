@@ -4,79 +4,93 @@
 # ===== INSTANTIATION-COMMON =====
 # ================================
 
-# START CreateBackup
+# START CreateBackup  # START RestoreBackup  # START StatusCreateBackup  # START StatusRestoreBackup
 import weaviate
 
-client = weaviate.Client("http://localhost:8080")
-# END CreateBackup
+client = weaviate.connect_to_local()
 
-# Create the classes, whether they exist or not
-client.data_object.create({"title": "Dummy"}, class_name="Article")
-client.data_object.create({"title": "Dummy"}, class_name="Publication")
-# START CreateBackup
-result = client.backup.create(
-  backup_id="my-very-first-backup",
-  backend="filesystem",
-  include_classes=["Article", "Publication"],
-  wait_for_completion=True,
-)
+try:
+    # END CreateBackup  # END RestoreBackup  # END StatusCreateBackup  # END StatusRestoreBackup
 
-print(result)
-# END CreateBackup
+    # Create the collections, whether they exist or not
+    client.collections.delete(["Article", "Publication"])
+    articles = client.collections.create(name="Article")
+    publications = client.collections.create(name="Publication")
 
-# Test
-assert result["status"] == "SUCCESS"
+    articles.data.insert(properties={"title": "Dummy"})
+    publications.data.insert(properties={"title": "Dummy"})
 
+    # START CreateBackup
+    result = client.backup.create(
+        backup_id="my-very-first-backup",
+        backend="filesystem",
+        include_collections=["Article", "Publication"],
+        wait_for_completion=True,
+    )
 
-# ==============================================
-# ===== Check status while creating backup =====
-# ==============================================
+    print(result)
+    # END CreateBackup
 
-# START StatusCreateBackup
-result = client.backup.get_create_status(
-  backup_id="my-very-first-backup",
-  backend="filesystem",
-)
+    # Test
+    assert result.status == "SUCCESS"
 
-print(result)
-# END StatusCreateBackup
+    # ==============================================
+    # ===== Check status while creating backup =====
+    # ==============================================
 
-# Test
-assert result["status"] == "SUCCESS"
+    # START StatusCreateBackup
+    result = client.backup.get_create_status(
+        backup_id="my-very-first-backup",
+        backend="filesystem",
+    )
 
+    print(result)
+    # END StatusCreateBackup
 
-# ==========================
-# ===== Restore backup =====
-# ==========================
+    # Test
+    assert result.status == "SUCCESS"
 
-client.schema.delete_class("Publication")
-# START RestoreBackup
-result = client.backup.restore(
-  backup_id="my-very-first-backup",
-  backend="filesystem",
-  exclude_classes="Article",
-  wait_for_completion=True,
-)
+    # ==========================
+    # ===== Restore backup =====
+    # ==========================
 
-print(result)
-# END RestoreBackup
+    client.collections.delete("Publication")
 
-# Test
-assert result["status"] == "SUCCESS"
+    # START RestoreBackup
+    result = client.backup.restore(
+        backup_id="my-very-first-backup",
+        backend="filesystem",
+        exclude_collections="Article",
+        wait_for_completion=True,
+    )
 
+    print(result)
+    # END RestoreBackup
 
-# ==============================================
-# ===== Check status while restoring backup =====
-# ==============================================
+    # Test
+    assert result.status == "SUCCESS"
 
-# START StatusRestoreBackup
-result = client.backup.get_restore_status(
-  backup_id="my-very-first-backup",
-  backend="filesystem",
-)
+    # ==============================================
+    # ===== Check status while restoring backup =====
+    # ==============================================
 
-print(result)
-# END StatusRestoreBackup
+    # START StatusRestoreBackup
+    result = client.backup.get_restore_status(
+        backup_id="my-very-first-backup",
+        backend="filesystem",
+    )
 
-# Test
-assert result["status"] == "SUCCESS"
+    print(result)
+    # END StatusRestoreBackup
+
+    # Test
+    assert result.status == "SUCCESS"
+
+    # Clean up
+    client.collections.delete(["Article", "Publication"])
+
+# START-ANY
+
+finally:
+    client.close()
+# END-ANY

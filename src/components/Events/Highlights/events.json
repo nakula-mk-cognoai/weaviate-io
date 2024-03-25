@@ -1,23 +1,23 @@
 [
   {
-    "type": "ONLINE WORKSHOP",
-    "title": "Intro to Weaviate for JavaScript Developers with Daniel #01",
-    "date": "JAN 24th 2024 13:00-14:00 ET",
-    "imageClass": "firstSection",
-    "url": "https://form.jotform.com/233442262304345"
-  },
-  {
-    "type": "WEBINAR",
-    "title": "How to Build an AI-Native Foundation for Enterprise Apps",
-    "date": "JAN 9th 2024 13:00-14:00 ET",
-    "imageClass": "secondSection",
-    "url": "https://webinars.devops.com/how-to-build-an-ai-native-foundation-for-enterprise-apps"
-  },
-  {
     "type": "MEETUP",
-    "title": "AI Accelerators Berlin - The Grid Edition",
-    "date": "JAN 23, 18:00-21:00 CET",
+    "title": "Hack Night at GitHub!",
+    "date": "MARCH 26TH 2024 16:00 - 21:00 PDT",
+    "imageClass": "secondSection",
+    "url": "https://lu.ma/GitHubHackNight-March26"
+  },
+  {
+    "type": "ONLINE WORKSHOP",
+    "title": "Introduction to Weaviate",
+    "date": "APRIL 4TH 2024 15:00 - 16:00 CET",
     "imageClass": "thirdSection",
-    "url": "https://lu.ma/jz2kswfb"
+    "url": "https://events.weaviate.io/workshop-24-04-04"
+  },
+  {
+    "type": "OFFICE HOURS",
+    "title": "Chunking",
+    "date": "APRIL 10TH 2024 15:00 - 16:00 CET",
+    "imageClass": "firstSection",
+    "url": "https://events.weaviate.io/oh-24-04-10"
   }
 ]

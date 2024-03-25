@@ -66,10 +66,6 @@ You need a Weaviate instance to work with. We recommend creating a free cloud sa
 
 Go to the [WCS quickstart](developers/wcs/quickstart.mdx) and follow the instructions to create a sandbox instance, and come back here.  Collect the **API key** and **URL** from the `Details` tab in WCS.
 
-:::note For v4 Python client users
-As of November 2023, WCS sandbox instances are not yet compatible with the new API introduced in the v4 Python client. We suggest creating a Weaviate instance using another method, such as Docker Compose.
-:::
-
 :::info To use another deployment method (e.g. Docker Compose)
 If you prefer another method, see [this section](#can-i-use-another-deployment-method).
 :::
@@ -205,9 +201,6 @@ The results are limited to objects from the `ANIMALS` category.
 Using a Boolean filter allows you to combine the flexibility of vector search with the precision of `where` filters.
 :::
 
-
-<!-- Note: Added the generative search example; but hiding it for now as it makes the workflow quite difficult for new users. 1) They will now need an OpenAI/Cohere key. 2) The schema needs to include a generative module definition. 3) Rate limit on generative API is low; so might be painful. -->
-
 ### Generative search (single prompt)
 
 Next, let's try a generative search. A generative search, also called retrieval augmented generation, prompts a large language model (LLM) with a combination of a user query as well as data retrieved from a database.
@@ -310,7 +303,7 @@ services:
     - '8080'
     - --scheme
     - http
-    image: semitechnologies/weaviate:||site.weaviate_version||
+    image: cr.weaviate.io/semitechnologies/weaviate:||site.weaviate_version||
     ports:
     - 8080:8080
     - 50051:50051

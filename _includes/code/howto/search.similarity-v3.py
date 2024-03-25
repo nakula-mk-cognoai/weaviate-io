@@ -11,11 +11,65 @@ import os
 # Instantiate the client with the user/password and OpenAI api key
 client = weaviate.Client(
     "https://edu-demo.weaviate.network",  # Replace with your Weaviate URL
-    auth_client_secret=weaviate.AuthApiKey("learn-weaviate"),  # If authentication is on. Replace w/ your Weaviate instance API key
+    auth_client_secret=weaviate.auth.AuthApiKey("learn-weaviate"),  # If authentication is on. Replace w/ your Weaviate instance API key
     additional_headers={
         "X-OpenAI-Api-Key": os.environ["OPENAI_APIKEY"]  # Replace w/ your OPENAI API key
     }
 )
+
+# ===============================================
+# ===== QUERY WITH TARGET VECTOR & nearText =====
+# ===============================================
+
+# NamedVectorNearTextPython
+# Unfortunately, named vectors are not suppored in the v3 API / Python client.
+# Please upgrade to the v4 API / Python client to use named vectors.
+# END NamedVectorNearTextPython
+
+expected_results = """
+# START Expected NamedVectorNearText results
+{
+  "WineReviewNV": [
+    {
+      "country": "Austria",
+      "review_body": "With notions of cherry and cinnamon on the nose and just slight fizz, this is a refreshing, fruit-driven sparkling ros\u00e9 that's full of strawberry and cherry notes\u2014it might just be the very definition of easy summer wine. It ends dry, yet refreshing.",
+      "title": "Gebeshuber 2013 Frizzante Ros\u00e9 Pinot Noir (\u00d6sterreichischer Perlwein)"
+    },
+    {
+      "country": "Austria",
+      "review_body": "Beautifully perfumed, with acidity, white fruits and a mineral context. The wine is layered with citrus and lime, hints of fresh pineapple acidity. Screw cap.",
+      "title": "Stadt Krems 2009 Steinterrassen Riesling (Kremstal)"
+    }
+  ]
+}
+# END Expected NamedVectorNearText results
+"""
+
+
+gql_query = """
+# NamedVectorNearTextGraphql
+{
+  Get {
+    WineReviewNV(
+      limit: 2
+# highlight-start
+      nearText: {
+        targetVectors: ["title_country"]
+        concepts: ["a sweet German white wine"]
+      }
+# highlight-end
+    ) {
+      title
+      review_body
+      country
+    }
+  }
+}
+# END NamedVectorNearTextGraphql
+"""
+
+gqlresponse = client.query.raw(gql_query)
+
 
 # ===============================
 # ===== QUERY WITH nearText =====
@@ -408,6 +462,69 @@ gql_query = """
 gqlresponse = client.query.raw(gql_query)
 test_gqlresponse(response, gqlresponse)
 
+
+
+"""
+# START AutoCutResults
+{
+  "data": {
+    "Get": {
+      "JeopardyQuestion": [
+        {
+          "_additional": {
+            "distance": 0.17591828
+          },
+          "answer": "meerkats",
+          "question": "Group of mammals seen <a href=\"http://www.j-archive.com/media/1998-06-01_J_28.jpg\" target=\"_blank\">here</a>:  [like Timon in <i>The Lion King</i>]"
+        },
+        {
+          "_additional": {
+            "distance": 0.17837524
+          },
+          "answer": "dogs",
+          "question": "Scooby-Doo, Goofy & Pluto are cartoon versions"
+        },
+        {
+          "_additional": {
+            "distance": 0.18658042
+          },
+          "answer": "The Call of the Wild Thornberrys",
+          "question": "Jack London story about the dog Buck who joins a Nick cartoon about Eliza, who can talk to animals"
+        },
+        {
+          "_additional": {
+            "distance": 0.18755406
+          },
+          "answer": "fox",
+          "question": "In titles, animal associated with both Volpone and Reynard"
+        },
+        {
+          "_additional": {
+            "distance": 0.18817466
+          },
+          "answer": "Lion Tamers/Wild Animal Trainers",
+          "question": "Mabel Stark, Clyde Beatty & Gunther Gebel-Williams"
+        },
+        {
+          "_additional": {
+            "distance": 0.19061792
+          },
+          "answer": "a fox",
+          "question": "\"Sly\" creature sought by sportsmen riding to hounds"
+        },
+        {
+          "_additional": {
+            "distance": 0.191764
+          },
+          "answer": "a lion",
+          "question": "The animal featured both in Rousseau's \"The Sleeping Gypsy\" & \"The Dream\""
+        }
+      ]
+    }
+  }
+}
+# END AutoCutResults
+"""
 
 
 # ==============================
