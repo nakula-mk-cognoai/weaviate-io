@@ -75,8 +75,79 @@
   border-radius: 0.3125rem;
   background: #fff;
   width: 72.4375rem;
-  height: 60.1875rem;
+  height: auto;
   flex-shrink: 0;
+}
+
+.tableContainer {
+  display: flex;
+}
+
+.tablePoints {
+  margin-left: 30px;
+}
+.longCell {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  justify-content: space-evenly;
+
+  hr {
+    margin-top: auto;
+  }
+}
+
+.smallCell {
+  display: flex;
+  flex-direction: column;
+  height: 110px;
+  justify-content: space-evenly;
+}
+
+.serverlessTable {
+  margin-left: 30px;
+  background: #f5f5f5;
+  width: 300px;
+
+  .longCell {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    justify-content: space-evenly;
+  }
+
+  .cellContent {
+    margin-top: auto;
+  }
+
+  .cellLogo {
+    display: flex;
+    align-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .cellLogo::before {
+    content: '';
+    background-image: url('/img/site/serverless-pricing-icon.svg');
+    background-size: cover;
+    width: 2.49994rem;
+    height: 2.52913rem;
+    flex-shrink: 0;
+  }
+
+  .logoText {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cellImage {
+    background-image: url('/img/site/serverless-pricing-icon.svg');
+    background-size: cover;
+    width: 2.49994rem;
+    height: 2.52913rem;
+    flex-shrink: 0;
+  }
 }
 
 .card {
