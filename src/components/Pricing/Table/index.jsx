@@ -1,8 +1,32 @@
 import Link from '@docusaurus/Link';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './styles.module.scss';
+import SlaPlan from '../SLAS';
 
 export default function PricingTable() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = (e) => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  useEffect(() => {
+    const handleEscapeKey = (e) => {
+      if (e.key === 'Escape' && isModalOpen) {
+        closeModal();
+      }
+    };
+
+    document.addEventListener('keydown', handleEscapeKey);
+
+    return () => {
+      document.removeEventListener('keydown', handleEscapeKey);
+    };
+  }, [isModalOpen]);
   return (
     <div className={styles.bgContainer}>
       <div className={styles.soc2Container}>
@@ -72,12 +96,29 @@ export default function PricingTable() {
                       by the dimensions stored and the chosen SLA package
                     </span>
                     <div className={styles.buttons}>
-                      <Link to="/contact" className={styles.buttonGradient}>
+                      <Link
+                        className={styles.buttonGradient}
+                        onClick={openModal}
+                      >
                         Sign up
                       </Link>
                     </div>
                   </div>
                 </div>
+                <div
+                  className={`${styles.modals} ${
+                    isModalOpen ? styles.open : ''
+                  }`}
+                  style={{ display: isModalOpen ? 'flex' : 'none' }}
+                >
+                  <div className={styles.modalContents}>
+                    <span className={styles.close} onClick={closeModal}>
+                      &times;
+                    </span>
+                    <SlaPlan />
+                  </div>
+                </div>
+
                 {/* Enterprise Table */}
                 <div
                   className={`${styles.serverlessTable} ${styles.enterprise}`}
@@ -124,7 +165,10 @@ export default function PricingTable() {
                       usage patterns
                     </span>
                     <div className={styles.buttons}>
-                      <Link to="/contact" className={styles.buttonGradient}>
+                      <Link
+                        to="#contact-sales"
+                        className={styles.buttonGradient}
+                      >
                         Contact us
                       </Link>
                     </div>
@@ -169,7 +213,10 @@ export default function PricingTable() {
                       Annual contract based upon CPU + RAM utilization
                     </span>
                     <div className={styles.buttons}>
-                      <Link to="/contact" className={styles.buttonGradient}>
+                      <Link
+                        to="#contact-sales"
+                        className={styles.buttonGradient}
+                      >
                         Contact us
                       </Link>
                     </div>
@@ -203,6 +250,10 @@ export default function PricingTable() {
                       <span>
                         Support for any type of user on any type of deployment
                       </span>
+                      <br></br>
+                      <span className={styles.cellNotice}>
+                        *Self-serve with on-demand resources
+                      </span>
                     </div>
                   </div>
                   <hr></hr>
@@ -211,7 +262,10 @@ export default function PricingTable() {
                       Annual contract based upon CPU + RAM utilization
                     </span>
                     <div className={styles.buttons}>
-                      <Link to="/contact" className={styles.buttonGradient}>
+                      <Link
+                        to="#contact-sales"
+                        className={styles.buttonGradient}
+                      >
                         Contact us
                       </Link>
                     </div>

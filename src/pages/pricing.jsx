@@ -35,8 +35,8 @@ export default function ProductPage() {
           // Render Serverless content
           <>
             <PricingTable />
-            <PricingPlan />
-            <HybridBusinessCritical />
+            {/*  <PricingPlan />
+            <HybridBusinessCritical /> */}
             <Soc2 socLight="dark" />
             <PricingFAQ faqType="Serverless" />
           </>
