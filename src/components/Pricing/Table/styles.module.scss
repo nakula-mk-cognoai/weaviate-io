@@ -74,7 +74,7 @@
 .tableBackground {
   border-radius: 0.3125rem;
   background: #fff;
-  width: 72.4375rem;
+  width: auto;
   height: auto;
   flex-shrink: 0;
 }
@@ -83,13 +83,10 @@
   display: flex;
 }
 
-.tablePoints {
-  margin-left: 30px;
-}
 .longCell {
   display: flex;
   flex-direction: column;
-  height: 200px;
+  height: 220px;
   justify-content: space-evenly;
 
   hr {
@@ -104,20 +101,37 @@
   justify-content: space-evenly;
 }
 
+.cellSpan {
+  padding: 20px;
+  height: 100px;
+}
+
 .serverlessTable {
-  margin-left: 30px;
   background: #f5f5f5;
   width: 300px;
 
   .longCell {
     display: flex;
     flex-direction: column;
-    height: 200px;
+    height: 220px;
     justify-content: space-evenly;
+
+    h3 {
+      color: #130c49;
+      font-family: 'Plus Jakarta Sans';
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+
+  .pricing {
+    height: 250px;
   }
 
   .cellContent {
-    margin-top: auto;
+    padding: 20px;
   }
 
   .cellLogo {
@@ -129,11 +143,35 @@
   }
   .cellLogo::before {
     content: '';
-    background-image: url('/img/site/serverless-pricing-icon.svg');
-    background-size: cover;
-    width: 2.49994rem;
+    background-image: url('/img/site/weaviate-logo-icon.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 4.49994rem;
     height: 2.52913rem;
     flex-shrink: 0;
+  }
+
+  .iconSection {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .cellIcon {
+    background-size: cover;
+    width: 3.00038rem;
+    height: 3rem;
+    flex-shrink: 0;
+  }
+
+  .azureIcon {
+    background-image: url('/img/site/azure-pricing-icon.png');
+  }
+  .awsIcon {
+    background-image: url('/img/site/aws-pricing-icon.svg');
+  }
+  .googleIcon {
+    background-image: url('/img/site/google-pricing-icon.svg');
   }
 
   .logoText {
@@ -147,7 +185,30 @@
     width: 2.49994rem;
     height: 2.52913rem;
     flex-shrink: 0;
+    margin: 15px 0px;
   }
+
+  .edImage {
+    background-image: url('/img/site/ed-pricing-icon.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+  }
+
+  .byocImage {
+    background-image: url('/img/site/byoc-pricing-icon.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+  }
+}
+
+.enterprise {
+  background-color: #ffffff;
+}
+
+.support {
+  background-color: #ffffff;
 }
 
 .card {
@@ -157,11 +218,9 @@
 
   width: 14.3125rem;
   height: 13.4375rem;
-
   background-color: #141f39;
   margin: 1rem;
   padding: 2rem;
-
   border-radius: 1.4375rem;
   background: #fff;
   box-shadow: 0px 24px 64px 0px rgba(22, 27, 45, 0.08);
@@ -169,6 +228,54 @@
   @media screen and (max-width: 600px) {
     height: auto;
     width: 100%;
+  }
+}
+
+.tableFooter {
+  width: 83.4375rem;
+  height: 6.875rem;
+  flex-shrink: 0;
+  border-radius: 0.3125rem;
+  background: #fff;
+  display: flex;
+  padding: 30px;
+  justify-content: flex-start;
+  align-items: center;
+
+  .iconSection {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin: auto;
+    flex-direction: row;
+    align-items: center;
+
+    a {
+      color: #130c49;
+      font-family: Inter;
+      font-size: 0.9375rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%; /* 1.3125rem */
+      text-decoration-line: underline;
+    }
+  }
+
+  .cellIcon {
+    background-size: cover;
+    width: 3.00038rem;
+    height: 3rem;
+    flex-shrink: 0;
+  }
+
+  .azureIcon {
+    background-image: url('/img/site/azure-pricing-icon.png');
+  }
+  .awsIcon {
+    background-image: url('/img/site/aws-pricing-icon.svg');
+  }
+  .googleIcon {
+    background-image: url('/img/site/google-pricing-icon.svg');
   }
 }
 
@@ -222,7 +329,7 @@
 }
 
 .buttons {
-  margin-top: 30px;
+  margin: 40px 0px;
   gap: 20px;
   display: flex;
   flex-direction: row;
@@ -231,8 +338,9 @@
   justify-content: center;
 
   a {
-    height: 45px;
-    width: 220px;
+    width: 11.375rem;
+    height: 2.625rem;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
