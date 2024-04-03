@@ -83,6 +83,10 @@
   display: flex;
 }
 
+.tableContent {
+  display: inline-flex;
+}
+
 .longCell {
   display: flex;
   flex-direction: column;
@@ -212,11 +216,11 @@
 }
 
 .enterprise {
-  background-color: #ffffff;
+  background-color: #ffffff !important;
 }
 
 .support {
-  background-color: #ffffff;
+  background-color: #ffffff !important;
 }
 
 .card {
