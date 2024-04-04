@@ -77,14 +77,33 @@
   width: auto;
   height: auto;
   flex-shrink: 0;
+
+  @media screen and (max-width: 1300px) {
+    width: 100%;
+  }
 }
 
 .tableContainer {
   display: flex;
 }
 
+.tablePoints {
+  @media screen and (max-width: 1300px) {
+    box-shadow: inset -7px 0px 0px 0px #0000002e;
+  }
+}
+
 .tableContent {
   display: inline-flex;
+
+  @media screen and (max-width: 1300px) {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-align: start;
+    box-sizing: border-box;
+  }
 }
 
 .longCell {
@@ -121,6 +140,7 @@
 .serverlessTable {
   background: #f5f5f5;
   width: 300px;
+  flex: 0 0 auto;
 
   .longCell {
     display: flex;
@@ -254,6 +274,11 @@
   justify-content: flex-start;
   align-items: center;
 
+  @media screen and (max-width: 1300px) {
+    width: 100%;
+    padding: 20px;
+  }
+
   .iconSection {
     display: flex;
     justify-content: center;
@@ -261,6 +286,10 @@
     margin: auto;
     flex-direction: row;
     align-items: center;
+
+    @media screen and (max-width: 1300px) {
+      gap: 40px;
+    }
 
     a {
       color: #130c49;
