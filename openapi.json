@@ -671,7 +671,7 @@
           "type": "string"
         },
         "vectorConfig": {
-          "description": "Name of the collection (a.k.a. class). Multiple words should be concatenated in CamelCase, e.g. `ArticleAuthor`.",
+          "description": "Configure named vectors (https://weaviate.io/developers/weaviate/config-refs/schema/multi-vector) for this collection. Starting from `v1.24.0`, this allows a collection to have multiple named vectors, each with its own configuration. &#10;&#10;Either use this field or `vectorizer`, `vectorIndexType`, and `vectorIndexConfig` fields.",
           "type": "object",
           "properties": {
             "<vector_name>": {
