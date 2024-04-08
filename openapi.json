@@ -671,7 +671,8 @@
           "type": "string"
         },
         "vectorConfig": {
-          "description": "Configure named vectors (https://weaviate.io/developers/weaviate/config-refs/schema/multi-vector) for this collection. Starting from `v1.24.0`, this allows a collection to have multiple named vectors, each with its own configuration. &#10;&#10;Either use this field or `vectorizer`, `vectorIndexType`, and `vectorIndexConfig` fields.",
+          "summary": "Test",
+          "description": "Configure named vectors (https://weaviate.io/developers/weaviate/config-refs/schema/multi-vector) for this collection. Starting from `v1.24.0`, this allows a collection to have multiple named vectors, each with its own configuration. Either use this field or `vectorizer`, `vectorIndexType`, and `vectorIndexConfig` fields.",
           "type": "object",
           "properties": {
             "<vector_name>": {
@@ -824,7 +825,7 @@
       "enum": ["hnsw", "flat"]
     },
     "VectorIndexConfig": {
-      "description": "Vector index type specific settings. See the vector index configuration page `https://weaviate.io/developers/weaviate/config-refs/schema/vector-index` for more details",
+      "description": "Vector index type specific settings. See the [vector index configuration page](https://weaviate.io/developers/weaviate/config-refs/schema/vector-index) for more details",
       "type": "object"
     },
     "Tokenization": {
@@ -4029,7 +4030,7 @@
       },
       "post": {
         "summary": "Create a collection.",
-        "description": "Create a new data object collection. <br/><br/>If AutoSchema `https://weaviate.io/developers/weaviate/config-refs/schema#auto-schema` is enabled, Weaviate will attempt to infer the schema from the data at import time. However, manual schema definition is recommended for production environments. <br/><br/>For further discussions of parameters, please see the schema reference page `https://weaviate.io/developers/weaviate/config-refs/schema`.",
+        "description": "Create a new data object collection. <br/><br/>If [AutoSchema](https://weaviate.io/developers/weaviate/config-refs/schema#auto-schema) is enabled, Weaviate will attempt to infer the schema from the data at import time. However, manual schema definition is recommended for production environments. <br/><br/>For further discussions of parameters, please see the [schema reference page](https://weaviate.io/developers/weaviate/config-refs/schema).",
         "operationId": "schema.objects.create",
         "x-serviceIds": [
           "weaviate.local.add.meta"
@@ -4170,7 +4171,7 @@
       },
       "put": {
         "summary": "Update an existing collection.",
-        "description": "Alter an existing collection definition. <br/><br/>Note that not all settings are mutable. (See this list `https://weaviate.io/developers/weaviate/config-refs/schema#mutability`.) To update any other (i.e. immutable) setting, you need to delete the collection, re-create it with the correct setting and then re-import the data. <br/><br/>This endpoint cannot be used to modify properties. Instead use `POST /v1/schema/{className}/properties`. A typical use case for this endpoint is to update a index configuration, such as `vectorIndexConfig/dynamicEfFactor`. <br/><br/>You should attach a body to this PUT request with the entire new configuration of the collection.",
+        "description": "Alter an existing collection definition. <br/><br/>Note that not all settings are mutable ([see this list](https://weaviate.io/developers/weaviate/config-refs/schema#mutability)). To update any other (i.e. immutable) setting, you need to delete the collection, re-create it with the correct setting and then re-import the data. <br/><br/>This endpoint cannot be used to modify properties. Instead use POST /v1/schema/{className}/properties. A typical use case for this endpoint is to update a index configuration, such as `vectorIndexConfig/dynamicEfFactor`. <br/><br/>You should attach a body to this PUT request with the entire new configuration of the collection.",
         "operationId": "schema.objects.update",
         "x-serviceIds": [
           "weaviate.local.manipulate.meta"
@@ -4234,7 +4235,7 @@
     "/schema/{className}/properties": {
       "post": {
         "summary": "Add a property.",
-        "description": "Add a property to an existing collection. <br/><br/>If possible, we encourage you to create all required properties at collection creation time. Adding a property after collection creation can lead to some indexing limitations `https://weaviate.io/developers/weaviate/config-refs/schema`.",
+        "description": "Add a property to an existing collection. <br/><br/>If possible, we encourage you to create all required properties at collection creation time. Adding a property after collection creation can lead to [some indexing limitations](https://weaviate.io/developers/weaviate/config-refs/schema).",
         "operationId": "schema.objects.properties.add",
         "x-serviceIds": [
           "weaviate.local.manipulate.meta"
@@ -5181,7 +5182,7 @@
     },
     {
       "name": "schema",
-      "description": "Operate on the database schema. <br/><br/>Note an 'Object class' in Weaviate is being renamed to a 'collection'. <br/><br/>See `https://weaviate.io/developers/weaviate/manage-data/collections` for client code examples."
+      "description": "Operate on the database schema. <br/><br/>Note an 'Object class' in Weaviate is being renamed to a 'collection'. <br/><br/>See [this page](https://weaviate.io/developers/weaviate/manage-data/collections) for client code examples."
     },
     {
       "name": "objects",
@@ -5193,7 +5194,7 @@
     },
     {
       "name": "backups",
-      "description": "Create, restore and check the status of backups. <br/><br/>See the [backups page `https://weaviate.io/developers/weaviate/configuration/backups` for a general introduction, configuration, and tech background of backups."
+      "description": "Create, restore and check the status of backups. <br/><br/>See the [backups page](https://weaviate.io/developers/weaviate/configuration/backups) for a general introduction, configuration, and tech background of backups."
     },
     {
       "name": "meta",
@@ -5209,7 +5210,7 @@
     },
     {
       "name": "graphql",
-      "description": "Query data using the GraphQL query language. See the [Weaviate GraphQL documentatio `https://weaviate.io/developers/weaviate/api/graphql` for query syntax details."
+      "description": "Query data using the GraphQL query language. See the [Weaviate GraphQL documentation](https://weaviate.io/developers/weaviate/api/graphql) for query syntax details."
     },
     {
       "name": "classifications",
