@@ -447,7 +447,7 @@ try:
     # ================================
 
     # START ReadAllCollections
-    response = client.collections.list_all()
+    response = client.collections.list_all(simple=False)  # Use `simple=False` to get comprehensive information
 
     print(response)
     # END ReadAllCollections

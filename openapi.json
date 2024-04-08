@@ -1,9 +1,10 @@
 {
   "servers": [
       {
-        "url": "http(s)://{weaviate_url}:{port}/v1"
+        "url": "http://localhost:8080/v1"
       }
   ],
+  "basePath": "/v1",
   "consumes": [
     "application/json"
   ],
@@ -670,7 +671,7 @@
           "type": "string"
         },
         "vectorConfig": {
-          "description": "Configure [named vectors](https://weaviate.io/developers/weaviate/config-refs/schema/multi-vector) for this collection. Starting from `v1.24.0`, this allows a collection to have multiple named vectors, each with its own configuration. <br/><br/>Either use this field or `vectorizer`, `vectorIndexType`, and `vectorIndexConfig` fields.",
+          "description": "Configure <a href='https://weaviate.io/developers/weaviate/config-refs/schema/multi-vector'>named vectors</a> for this collection. Starting from `v1.24.0`, this allows a collection to have multiple named vectors, each with its own configuration. <br/><br/>Either use this field or `vectorizer`, `vectorIndexType`, and `vectorIndexConfig` fields.",
           "type": "object",
           "properties": {
             "<vector_name>": {
