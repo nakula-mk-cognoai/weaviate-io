@@ -573,6 +573,18 @@ const config = {
                 },
             },
         }),
+
+    scripts: [{
+        src: "https://widget.kapa.ai/kapa-widget.bundle.js",
+        "data-website-id": "325e2633-b6b8-4dbe-b86c-96e230fe9c88",
+        "data-project-name": "Weaviate",
+        "data-project-color": "#1C1468",
+        "data-project-logo": "https://avatars.githubusercontent.com/u/37794290?s=280&v=4",
+        "data-modal-disclaimer": "This is a custom LLM for Weaviate with access to all developer docs, WCS Cloud docs, academy lessons, contributor guides, last year of open GitHub issues and recently resolved forum questions.",
+        "data-modal-example-questions": "How do I delete an object?,Can I use hybrid search?",
+        "data-modal-footer": "Powered by [weaviate](https://weaviate.io/) and [kapa.ai](https://www.kapa.ai/)",
+        async: true,
+    }]
 };
 
 module.exports = config;
