@@ -469,8 +469,12 @@ const siteRedirects = {
         },
         // workshops
         {
-            to: "/community/events",
-            from: "/learn/workshop"
+            to: "/events",
+            from: [
+                "/learn/workshop",
+                "/community/events"
+            ]
+
         },
         // Partners Off
         {

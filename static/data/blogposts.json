@@ -53,7 +53,7 @@
       "date": "April 2, 2024"
     },
     {
-      "link": "/community/events",
+      "link": "/events",
       "type": "Workshop",
       "backgroundImage": "/img/site/workshops-daniel.png",
       "tagline": "Getting Started with the New Weaviate TypeScript Client",

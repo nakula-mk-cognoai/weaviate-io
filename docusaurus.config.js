@@ -210,7 +210,7 @@ const config = {
             image: 'og/default.jpg',
             announcementBar: {
                 id: 'announcement-bar-online-workshops',
-                content: `<b>Learn from the experts</b> at our weekly <a target="_blank" rel="noopener noreferrer" href="/community/events">Online Workshops</a>.`,
+                content: `<b>Learn from the experts</b> at our weekly <a target="_blank" rel="noopener noreferrer" href="/events">Online Workshops</a>.`,
                 backgroundColor: '#1C1468',
                 textColor: '#F5F5F5',
                 isCloseable: true,
@@ -296,16 +296,16 @@ const config = {
                                 type: 'doc',
                             },
                             {
+                                label: 'Online Workshops & Events',
+                                to: '/events',
+                            },
+                            {
                                 label: 'Newsletter',
                                 to: 'https://newsletter.weaviate.io/',
                             },
                             {
                                 label: 'Community',
                                 to: '/community',
-                            },
-                            {
-                                label: 'Online Workshops & Events',
-                                to: '/community/events',
                             },
                             {
                                 label: 'Contributor Guide',

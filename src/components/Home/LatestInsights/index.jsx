@@ -1,9 +1,5 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import * as Tabs from '@radix-ui/react-tabs';
-import { LinkButton } from '/src/theme/Buttons';
-import { ButtonContainer } from '../../../theme/Buttons';
-import Image from 'react';
 import Link from '@docusaurus/Link';
 import posts from '/data/blogposts.json';
 import BlogItem from './blogItem';
@@ -27,7 +23,7 @@ export default function HomepageLatestInsights() {
         <Link className={styles.buttonGradient} to="/blog">
           Go to Blog
         </Link>
-        <Link className={styles.buttonOutline} to="/community/events">
+        <Link className={styles.buttonOutline} to="/events">
           Go to Workshops
         </Link>
       </div>
