@@ -235,43 +235,43 @@ const config = {
                         position: 'right',
                         to: '/platform',
                     },
-                    {  type: 'dropdown',
-                    label: 'Services',
-                    position: 'right',
-                    items: [
-                        {
-                            label: 'Services Overview',
-                            href: '/services',
+                    {  
+                        type: 'dropdown',
+                        label: 'Services',
+                        position: 'right',
+                        items: [
+                            {
+                                label: 'Services Overview',
+                                href: '/services',
 
-                        },
-                        {
-                            label: 'Serverless',
-                            href: '/services/serverless',
+                            },
+                            {
+                                label: 'Serverless',
+                                href: '/services/serverless',
 
-                        },
-                        {
-                            label: 'Enterprise Dedicated',
-                            href: '/services/enterprise-dedicated',
+                            },
+                            {
+                                label: 'Enterprise Dedicated',
+                                href: '/services/enterprise-dedicated',
 
-                        },
-                        {
-                            label: 'Bring Your Own Cloud',
-                            href: '/services/byoc',
+                            },
+                            {
+                                label: 'Bring Your Own Cloud',
+                                href: '/services/byoc',
 
-                        },
-                        {
-                            label: 'Education & Support',
-                            href: '/services/education-and-support',
+                            },
+                            {
+                                label: 'Education & Support',
+                                href: '/services/education-and-support',
 
-                        },
-                        {
-                            label: 'Pricing',
-                            href: '/pricing',
+                            },
+                            {
+                                label: 'Pricing',
+                                href: '/pricing',
 
-                        },
-                    ]
-                }
-                    ,
+                            },
+                        ]
+                    },
                     {
                         type: 'dropdown',
                         label: 'Developers',
@@ -384,67 +384,15 @@ const config = {
                     },
                     {
                         html: `<img class="githubStars" src="https://img.shields.io/github/stars/weaviate/weaviate?style=social&logo=github&logoColor=%23120c46&label=%20&color=%23ffffff&link=https%3A%2F%2Fgithub.com%2Fweaviate%2Fweaviate" alt="GitHub stars" />`,
-
                         to: 'https://github.com/weaviate/weaviate',
                         position: 'right',
-                      },
-
+                    },
                     {
                         label: 'Try Now',
                         className: 'tryNow',
                         to: 'https://console.weaviate.cloud',
                         position: 'right',
                     },
-                    /*  {
-                        to: '/developers/academy',
-                        label: ' ',
-                        position: 'right',
-                        target: '_blank',
-                        className: 'fas fa-lg fa-graduation-cap',
-                    },
-                    {
-                        to: 'https://weaviate.io/slack',
-                        label: ' ',
-                        position: 'right',
-                        target: '_blank',
-                        className: 'fab fa-lg fa-slack',
-                    },
-                    {
-                        to: 'https://forum.weaviate.io',
-                        label: ' ',
-                        position: 'right',
-                        target: '_blank',
-                        className: 'fab fa-lg fa-discourse',
-                    },
-                    {
-                        to: 'https://github.com/weaviate/weaviate',
-                        label: ' ',
-                        position: 'right',
-                        target: '_blank',
-                        className: 'fab fa-lg fa-github',
-                    },
-                    {
-                        to: 'https://twitter.com/weaviate_io',
-                        label: ' ',
-                        position: 'right',
-                        target: '_blank',
-                        className: 'fab fa-lg fa-twitter',
-                    },
-                    {
-                        to: 'https://newsletter.weaviate.io',
-                        label: ' ',
-                        position: 'right',
-                        target: '_blank',
-                        className: 'fas fa-lg fa-envelope',
-                    },
-                    {
-                        to: '/podcast',
-                        // to: 'https://www.youtube.com/@Weaviate/playlists',
-                        label: ' ',
-                        position: 'right',
-                        // target: '_blank',
-                        className: 'fas fa-lg fa-microphone',
-                    },*/
                     {
                         type: 'search',
                         position: 'right',
