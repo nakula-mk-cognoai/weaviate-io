@@ -24,15 +24,6 @@ export default function WorkshopSection() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.headerBox}>
-        <h2>Our upcoming workshops & events around the world</h2>
-        <p>
-          We believe that the next wave of software infrastructure is AI-first
-          and that a strong open-source community is a basis for creating
-          high-quality software. <br/>Our workshops deliver new information and
-          details on our service.
-        </p>
-      </div>
       <div className={styles.workshopWrapper}>
         <div className="workshopContainer">
           {!isCalendarLoaded && (

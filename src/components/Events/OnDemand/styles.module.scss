@@ -76,31 +76,13 @@
   }
 }
 
-.buttons {
-  margin-top: 70px;
+.ondemandSection {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 
   @media screen and (max-width: 960px) {
-    flex-direction: column;
-  }
-
-  a {
-    height: 45px;
-    width: 340px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    text-decoration: none;
-  }
-
-  .buttonGradient {
-    background-image: linear-gradient(45deg, #20e220 60%, #ffff00);
-    color: rgba(46, 49, 143);
-    font-weight: bold;
+    flex-wrap: wrap;
   }
 }
 
@@ -149,49 +131,61 @@
   }
 }
 
+.marketTitle {
+  h2 {
+    color: #ffffff;
+  }
+}
+
 .marketText {
   text-align: center;
+  color: #ffffff;
 }
 
 .marketBox {
-  width: 17.375rem;
-  height: 12rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   padding: 10px;
   margin: 10px 10px;
   transition: all 1s ease-out;
-  border-radius: 0.9375rem;
-  background: #fff;
-  box-shadow: 0px 24px 64px 0px rgba(22, 27, 45, 0.08);
-  &:hover {
-    background: #130c49;
-    color: #fff;
-    font-weight: 400;
-    p,
-    a {
-      color: #fff;
-    }
-
-    .test {
-      color: white;
-    }
-  }
+  gap: 20px;
+  width: 24rem;
+  height: 26rem;
 
   p {
-    color: #130c49;
-    text-align: center;
-    font-family: Inter;
-    font-size: 1rem;
-
+    color: #61bd73;
+    font-family: 'Plus Jakarta Sans';
+    font-size: 1.25rem;
+    font-style: normal;
     font-weight: 700;
+    line-height: normal;
+  }
+
+  span {
+    color: #fff;
+    font-family: Inter;
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 150%; /* 1.40625rem */
   }
 
   a {
-    color: #1c1468;
+    color: #fff;
+    font-family: Inter;
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 1.40625rem */
+    text-decoration-line: underline;
   }
+}
+
+.marketImage {
+  width: 20.0625rem;
+  height: 13.375rem;
+  flex-shrink: 0;
+  background: #262262;
 }
 
 .awsBox {
@@ -285,7 +279,7 @@
 }
 
 .bgColor {
-  background: #ededed;
+  background: #130c49;
 }
 
 .featuresLine {
