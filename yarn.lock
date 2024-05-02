@@ -17992,10 +17992,10 @@ wcwidth@^1.0.1:
   dependencies:
     defaults "^1.0.3"
 
-weaviate-client@^3.0.0-beta.23:
-  version "3.0.0-beta.23"
-  resolved "https://registry.yarnpkg.com/weaviate-client/-/weaviate-client-3.0.0-beta.23.tgz#2d0ecc05899cdf67b3689dc89df3b3e3ef6df52a"
-  integrity sha512-K8JiW3XjMcvRNOXkXSAz2CwS7Vlzpgc5hV4ZY+5Vm2NxNTLpTbmBmCHecxB0baaDuzFo3l014wuMgIWFJVfPCg==
+weaviate-client@^3.0.0-rc.0:
+  version "3.0.0-rc.0"
+  resolved "https://registry.yarnpkg.com/weaviate-client/-/weaviate-client-3.0.0-rc.0.tgz#773583f86598d343cac7789e959ed5cf19a12183"
+  integrity sha512-MXowrkO5qEeyWMpSrTINvAdvwYL0X51QdN0l02iKz0SFuurt6c2m3rA0SddlbWZ/2FcQzlRYgjjP/DcQKmKfaw==
   dependencies:
     graphql "^16.8.1"
     graphql-request "^6.1.0"
